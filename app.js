@@ -1,37 +1,45 @@
 // Initial array of topics
-var topics = ["movies", "sports", "weather", "animals", "plants", "books"];
+var topics = ["movies", "sports", "weather", "animals", "plants", "books", "music", "presidents", "holidays"];
 
 // displayMovieInfo function re-creates the HTML to display the appropriate content
 function displayGifs() {
     var topic = $(this).attr("data-name");
-    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
-      topic + "&api_key=dc6zaTOxFJmzC&limit=10"; //limits gifs to 10
+    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + topic + "&api_key=dc6zaTOxFJmzC&limit=10"; //limits gifs to 10
 
     $.ajax({
       url: queryURL,
       method: "GET"
     }).then(function(response) {
 
-    console.log(response);
+        console.log(response);
 
         var results = response.data;
 
         $("#gifs-area").empty();
 
         for (var i = 0; i < results.length; i++) {
+            
             var gifDiv = $("<div class='item'>");
 
-            var rating = results[i].rating;
+            var rating = $("<p>").text("Rating: " + results[i].rating); //adds rating
 
-            var p = $("<p>").text("Rating: " + rating);
+            var singleImage = $("<div><img src='" + results[i].images.fixed_height_still.url + "' class='static'><img src='" + results[i].images.fixed_height.url + "' style='display: none;' class='moving'></div>");
 
-            var topicImage = $("<img>");
-            topicImage.attr("src", results[i].images.fixed_height.url);
-
-            gifDiv.prepend(topicImage);
-            gifDiv.prepend(p);
+            gifDiv.prepend(singleImage);
+            gifDiv.prepend(rating);
 
             $("#gifs-area").prepend(gifDiv);
+            
+            $(".static").click(function() {
+                $(".static").hide();
+                $(".moving").show();
+            })
+
+            $(".moving").click(function() {
+                $(".moving").hide();
+                $(".static").show();
+            })
+
         }
     });
 }
@@ -61,10 +69,10 @@ $(".created-buttons").empty();
 }
 
 // This function handles events where the add movie button is clicked
-$("#add-movie").on("click", function(event) {
+$("#add-button").on("click", function(event) {
     event.preventDefault();
 // This line of code will grab the input from the textbox
-    var newTopic = $("#movie-input").val().trim();
+    var newTopic = $("#user-input").val().trim();
 
 // The movie from the textbox is then added to our array
     topics.push(newTopic);
