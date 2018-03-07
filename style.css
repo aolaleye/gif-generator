@@ -1,24 +1,74 @@
+body {
+    font-family: 'Cantata One', serif;
+    background-color: #d3d3d3;
+}
+
 .container {
     max-width: 100%;
 }
 
-.created-buttons .btn {
-    border: 1px dotted #fff;
+.jumbotron {
+    background-color: #843838;
+    border-top: 2px dotted #fff;
+    border-bottom: 2px dotted #fff;
     border-radius: 0;
+    background: url(bg-gif.gif) center no-repeat;
+    background-size: cover;
+    color: #fff;
+}
+
+.display-4 {
+    font-family: 'Fredoka One', cursive;
+    color: #fff;
+    text-shadow: -1px 0px 20px #ababab;
+}
+
+#add-button {
+    background-color: #8c8989;
+    padding: 10px 25px;
+    border: 4px double #fff;
+    color: #fff;
+}
+
+#add-button:hover {
+    background-color: #565656;
+}
+
+.created-buttons .btn {
+    background-color: #0894ca;
+    border: 1px dotted #fff;
+    border-radius: 10px;
     padding: 20px 40px;
 }
 
 .created-buttons .btn:nth-child(2n) {
-    background-color: gray;
+    background-color: #e4d043;
 }
 
 .created-buttons .btn:nth-child(3n) {
-    background-color: #52565a;
+    background-color: #1abf4c;
 }
 
+.created-buttons .btn:nth-child(4n) {
+    background-color: #b94c4c;
+}
+
+.created-buttons .btn:nth-child(5n) {
+    background-color: #9e72b9;
+}
+
+.created-buttons .btn:nth-child(6n) {
+    background-color: #f89500;
+}
+
+.created-buttons .btn:nth-child(7n) {
+    background-color: #00dbf8;
+}
+
+
 .created-buttons .btn:hover {
-    background-color: #bdbdbd;
-    border-color: #bdbdbd;
+    background-color: #1f1f1f1f;
+    border-color: #1f1f1f1f;
 }
 
 img {
@@ -34,4 +84,5 @@ img {
 
 .form-control::placeholder {
     font-style: italic;
+    color: rgb(206, 205, 205);
 }
