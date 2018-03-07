@@ -1,13 +1,37 @@
-.btn:nth-child(even) {
+.container {
+    max-width: 100%;
+}
+
+.created-buttons .btn {
+    border: 1px dotted #fff;
+    border-radius: 0;
+    padding: 20px 40px;
+}
+
+.created-buttons .btn:nth-child(2n) {
+    background-color: gray;
+}
+
+.created-buttons .btn:nth-child(3n) {
     background-color: #52565a;
 }
 
-.btn:hover {
+.created-buttons .btn:hover {
     background-color: #bdbdbd;
     border-color: #bdbdbd;
 }
 
-.btn-group {
-    border: none;
-    border-radius: 0;
+img {
+    margin-bottom: 30px;
+    display: inline;
+    max-width: 100%;
 }
+
+.form {
+    background-color: lightgray;
+    min-width: 100%;
+}
+
+/* .form-control {
+    max-width: 60%;
+} */

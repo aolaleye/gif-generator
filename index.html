@@ -9,30 +9,35 @@
 </head>
 
 <body>
-    <div class="jumbotron mb-0 pt-5 pb-4">
-        <h1 class="display-6">Gif Generator</h1>
+    <div class="jumbotron mb-0 pt-5 pb-4 text-center">
+        <h1 class="display-5">Gif Generator</h1>
         <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
         <hr class="my-2">
         <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
     </div>
 
-    <div class="created-buttons btn-group btn-group-lg">
+    <div class="container">
+    <!-- this form allows user to input a new topic -->
+    <div class="row pt-4 pb-3 text-center form">
+    <form id="user-form" class="col">
+        <div class="form-group  mb-3">
+            <label for="user-input" class="sr-only">Add your own topic</label>
+            <input type="text" class="form-control" id="user-input" placeholder="Add your own topic">
+        </div>
+        <!-- upon click a new button is created from user input -->
+        <button id="add-button" type="submit" class=" btn btn-primary mb-2">Add Topic!</button>
+    </form>
+    </div>    
+
+    
+    <div class="created-buttons text-center row mb-4">
         <!-- buttons will appear here  -->
     </div>
 
-    <!-- user inputs a new topic to be added -->
-    <form id="user-form" class="text-center">
-    <label for="user-input">Add your own topic:</label>
-    <input type="text" id="user-input">
-    <!-- a new button is created from user input -->
-    <input id="add-button" type="submit" value="Create Button!">
-    </form>
-
-    <div id="gifs-area">
+    <div id="gifs-area" class="row text-center">
         <!-- gifs will appear here -->
     </div>
-
-
+    </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="app.js" type="text/javascript" charset="utf-8"></script> 
 </body>

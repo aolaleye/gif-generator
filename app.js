@@ -18,16 +18,13 @@ function displayGifs() {
 
         for (var i = 0; i < results.length; i++) {
             
-            var gifDiv = $("<div class='item'>");
+            // var rating = $("<h6>").text("Rating: " + results[i].rating.toUpperCase()); //adds rating
 
-            var rating = $("<p>").text("Rating: " + results[i].rating); //adds rating
+            var singleGif = $("<div class='col-3 static'><h6>Rating: " + results[i].rating.toUpperCase() + "</h6><img src='" + results[i].images.fixed_height_still.url + "'></div><div class='col-3 moving' style='display: none;'><h6>Rating: " + results[i].rating.toUpperCase() + "</h6><img src='" + results[i].images.fixed_height.url + "'></div>");
 
-            var singleGif = $("<div><img src='" + results[i].images.fixed_height_still.url + "' class='static'><img src='" + results[i].images.fixed_height.url + "' style='display: none;' class='moving'></div>");
+            // singleGif.prepend(rating);
 
-            gifDiv.prepend(singleGif);
-            gifDiv.prepend(rating);
-
-            $("#gifs-area").prepend(gifDiv);
+            $("#gifs-area").prepend(singleGif);
             
             $(".static").click(function() {
                 $(".static").hide();
@@ -48,7 +45,7 @@ function createButtons() {
     $(".created-buttons").empty();
     for (var i = 0; i < topics.length; i++) {
         var button = $("<button>");
-        button.addClass("topic btn btn-secondary");
+        button.addClass("topic btn btn-secondary col-2");
         button.attr("data-name", topics[i]);
         button.text(topics[i]);
         $(".created-buttons").append(button);
@@ -57,9 +54,13 @@ function createButtons() {
 
 $("#add-button").on("click", function(event) {
     event.preventDefault();
+    if ($("#user-input").val() === '') {
+        $("#add-button").preventDefault();
+    }
     var newTopic = $("#user-input").val().trim();
     topics.push(newTopic);
     createButtons();
+    $("#user-input").val('');
 });
 
 
