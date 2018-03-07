@@ -4,31 +4,37 @@
 <head>
   <meta charset="utf-8">
   <title>Gif Generator</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+    <div class="jumbotron mb-0 pt-5 pb-4">
+        <h1 class="display-6">Gif Generator</h1>
+        <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+        <hr class="my-2">
+        <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+    </div>
 
-  <div class="container">
-    <h1>Gif Generator</h1>
+    <div class="created-buttons btn-group btn-group-lg">
+        <!-- buttons will appear here  -->
+    </div>
 
-    <!-- Rendered buttons will get dumped here  -->
-    <div class="created-buttons"></div>
-
-    <form id="movie-form">
-      <label for="user-input">Add your own topic:</label>
-      <input type="text" id="user-input"><br>
-
-      <!-- Button triggers new movie to be added -->
-      <input id="add-button" type="submit" value="Create Button!">
+    <!-- user inputs a new topic to be added -->
+    <form id="user-form" class="text-center">
+    <label for="user-input">Add your own topic:</label>
+    <input type="text" id="user-input">
+    <!-- a new button is created from user input -->
+    <input id="add-button" type="submit" value="Create Button!">
     </form>
 
-    <!-- Movies will get dumped Dere -->
-    <div id="gifs-area"></div>
+    <div id="gifs-area">
+        <!-- gifs will appear here -->
+    </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="app.js" type="text/javascript" charset="utf-8"></script> 
-  </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="app.js" type="text/javascript" charset="utf-8"></script> 
 </body>
 
 </html>

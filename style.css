@@ -1,6 +1,13 @@
-button,
-div,
-form,
-input {
-    margin: 10px;
+.btn:nth-child(even) {
+    background-color: #52565a;
+}
+
+.btn:hover {
+    background-color: #bdbdbd;
+    border-color: #bdbdbd;
+}
+
+.btn-group {
+    border: none;
+    border-radius: 0;
 }
