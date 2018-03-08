@@ -27,14 +27,14 @@ body {
 }
 
 #add-button {
-    background-color: #565656;
+    background-color: #989898;
     padding: 10px 25px;
-    border: 6px double #fff;
+    border: 4px double #fff;
     color: #fff;
 }
 
 #add-button:hover {
-    background-color: #3a3a3a;
+    background-color: #565656;
 }
 
 .created-buttons .btn {
@@ -44,12 +44,12 @@ body {
     padding: 20px 20px;
 }
 
-.created-buttons .btn:nth-child(3n) {
-    background-color: #e4d043;
-}
-
 .created-buttons .btn:nth-child(2n) {
     background-color: #1abf4c;
+}
+
+.created-buttons .btn:nth-child(3n) {
+    background-color: #e4d043;
 }
 
 .created-buttons .btn:nth-child(4n) {
@@ -70,7 +70,6 @@ body {
 
 .created-buttons .btn:hover {
     background-color: #1f1f1f1f;
-    border-color: #1f1f1f1f;
 }
 
 img {
@@ -80,6 +79,10 @@ img {
 
 .form {
     min-width: 100%;
+}
+
+.form input {
+    border: 2px solid rgb(206, 205, 205);
 }
 
 .form-control::placeholder {
@@ -93,4 +96,5 @@ img {
     color: #fff;
     padding: 15px;
     border-radius: 20px;
+    box-shadow: inset 2px 0px 20px 0px #252525;
 }
