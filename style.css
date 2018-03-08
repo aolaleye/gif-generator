@@ -42,34 +42,54 @@ body {
     border: 1px dotted #fff;
     border-radius: 0px;
     padding: 20px 20px;
+
+    animation-name: flash;
+	animation-duration: 1.8s;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
 }
 
 .created-buttons .btn:nth-child(2n) {
     background-color: #1abf4c;
+    animation-duration: 2.2s;
 }
 
 .created-buttons .btn:nth-child(3n) {
     background-color: #e4d043;
+    animation-duration: 2s;
 }
 
 .created-buttons .btn:nth-child(4n) {
     background-color: #b94c4c;
+    animation-duration: 3s;
 }
 
 .created-buttons .btn:nth-child(5n) {
     background-color: #9e72b9;
+    animation-duration: 2.5s;
 }
 
 .created-buttons .btn:nth-child(7n) {
     background-color: #f89500;
+    animation-duration: 3.5s;
 }
 
 .created-buttons .btn:nth-child(9n) {
     background-color: #00dbf8;
+    animation-duration: 1.5s;
 }
 
 .created-buttons .btn:hover {
-    background-color: #1f1f1f1f;
+    color: #000;
+    background-color: #fff;
+    animation-duration: 0s;
+}
+
+/* cool feature that makes buttons flash */
+@keyframes flash {  
+    0% { opacity: 1.0; }
+    50% { opacity: 0.2; }
+    100% { opacity: 1.0; }
 }
 
 img {
@@ -99,6 +119,7 @@ img {
     padding: 15px;
     border-radius: 20px;
     box-shadow: inset 2px 0px 20px 0px #252525;
+    /* box-shadow: -1px 3px 20px 0px #252525; */
 }
 
 /* --- media queries --- */
