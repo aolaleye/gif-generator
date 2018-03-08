@@ -27,14 +27,14 @@ body {
 }
 
 #add-button {
-    background-color: #989898;
+    background-color: #565656;
     padding: 10px 25px;
     border: 4px double #fff;
     color: #fff;
 }
 
 #add-button:hover {
-    background-color: #565656;
+    background-color: #404040;
 }
 
 .created-buttons .btn {
@@ -91,10 +91,23 @@ img {
 }
 
 .instructions p {
+    font-size: .9rem;
     display: inline;
-    background-color: #565656;
+    background: linear-gradient(3deg, #313131, #fff);
+    /* background-color: #565656; */
     color: #fff;
     padding: 15px;
     border-radius: 20px;
     box-shadow: inset 2px 0px 20px 0px #252525;
 }
+
+/* --- media queries --- */
+
+/* tablets (landscape) and bigger */
+@media only screen and (min-width: 1300px) {
+
+    .instructions p {
+        font-size: 1rem;
+    }
+
+} /* <--- end media query */
