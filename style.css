@@ -114,7 +114,8 @@ img {
     font-size: .9rem;
     display: inline;
     /* background: linear-gradient(3deg, #313131, #fff); */
-    background-color: #989898;
+    /* background-color: #989898; */
+    background-color: #565656;
     color: #fff;
     padding: 5px;
     border-radius: 10px;
