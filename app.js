@@ -1,9 +1,9 @@
 
-var topics = ["movies", "sports", "weather", "animals", "plants", "books", "music", "presidents", "holidays", "food"];
+var topics = ["movies", "sports", "weather", "animals", "plants", "books", "music", "presidents", "holidays", "food", "planets", "clothing"];
 
 function displayGifs() {
     var topic = $(this).attr("data-name");
-    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + topic + "&api_key=dc6zaTOxFJmzC&limit=10"; //limits gifs to 10
+    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + topic + "&api_key=dc6zaTOxFJmzC&limit=10"; //<--- limits gifs to 10
 
     $.ajax({
       url: queryURL,
@@ -17,26 +17,24 @@ function displayGifs() {
         $("#gifs-area").empty();
 
         for (var i = 0; i < results.length; i++) {
-            
-            // var rating = $("<h6>").text("Rating: " + results[i].rating.toUpperCase()); //adds rating
 
-            var singleGif = $("<div class='col-3 static'><h6>Rating: " + results[i].rating.toUpperCase() + "</h6><img src='" + results[i].images.fixed_height_still.url + "'></div><div class='col-3 moving' style='display: none;'><h6>Rating: " + results[i].rating.toUpperCase() + "</h6><img src='" + results[i].images.fixed_height.url + "'></div>");
+            var singleGif = $("<div class='col-3 mb-5'><img src='" + results[i].images.fixed_height_still.url + "' data-still='" + results[i].images.fixed_height_still.url + "' data-animate='" + results[i].images.fixed_height.url + "' data-state='still' class='gif'><h6>Rating: " + results[i].rating.toUpperCase() + "</h6></div>");
 
-            // singleGif.prepend(rating);
-
-            $("#gifs-area").prepend(singleGif);
-            
-            $(".static").click(function() {
-                $(".static").hide();
-                $(".moving").show();
-            })
-
-            $(".moving").click(function() {
-                $(".moving").hide();
-                $(".static").show();
-            })
+            $("#gifs-area").prepend(singleGif); //<--- prints gifs
 
         }
+
+        $(".gif").on("click", function() {
+            var state = $(this).attr("data-state");
+        
+            if (state === "still") {
+                $(this).attr("src", $(this).data("animate"));
+                $(this).attr("data-state", "animate");
+            } else {
+                $(this).attr("src", $(this).data("still"));
+                $(this).attr("data-state", "still");
+            }
+        }) 
     });
 }
 
@@ -63,7 +61,7 @@ $("#add-button").on("click", function(event) {
     $("#user-input").val('');
 });
 
-
 $(document).on("click", ".topic", displayGifs);
 
 createButtons();
+
