@@ -12,8 +12,9 @@ body {
     border-top: 8px double #fff;
     border-bottom: 8px double #fff;
     border-radius: 0;
-    /* background: url(bg-gif.gif) center no-repeat;
-    background-size: cover; */
+    background: linear-gradient(#b94c4c, transparent 100%),
+    linear-gradient(0deg, #b94c4c, transparent 100%), #b94c4c url(bg-gif.gif) center no-repeat;
+    background-size: cover;
     color: #fff;
     box-shadow: inset 0px 11px 20px -10px #000,
                 inset 0px -11px 20px -10px #000; 
@@ -80,7 +81,7 @@ body {
 }
 
 .created-buttons .btn:hover {
-    color: #000;
+    color: #495057;
     background-color: #fff;
     animation-duration: 0s;
 }
@@ -102,7 +103,7 @@ img {
 }
 
 .form input {
-    border: 2px solid rgb(206, 205, 205);
+    border: 2px solid #565656;
 }
 
 .form-control::placeholder {
@@ -113,12 +114,12 @@ img {
 .instructions p {
     font-size: .9rem;
     display: inline;
-    background: linear-gradient(3deg, #313131, #fff);
-    /* background-color: #565656; */
+    /* background: linear-gradient(3deg, #313131, #fff); */
+    background-color: #989898;
     color: #fff;
-    padding: 15px;
-    border-radius: 20px;
-    box-shadow: inset 2px 0px 20px 0px #252525;
+    padding: 5px;
+    border-radius: 10px;
+    /* box-shadow: inset 2px 0px 20px 0px #252525; */
     /* box-shadow: -1px 3px 20px 0px #252525; */
 }
 
