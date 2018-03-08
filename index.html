@@ -10,17 +10,22 @@
 </head>
 
 <body>
-    <div class="jumbotron mb-0 text-center mt-3">
+    <div class="jumbotron mb-0 text-center mt-5">
         <h1 class="display-4 mb-4">Gif Generator</h1>
     </div>
 
     <div class="container">
+
+    <div class="instructions row mt-5 mb-4 mx-5 text-center ">
+        <p class="col mx-3">Click a button to generate gifs</p>
+        <p class="col mx-3">Click each gif to see it in action</p>
+        <p class="col mx-3">Create a brand new button</p>
+    </div>    
+
     <!-- this form allows user to input a new topic -->
-    <div class="row pt-4 pb-3 text-center form">
+    <div class="row pt-4 pb-3 mb-3 text-center form">
     <form id="user-form" class="col">
-        <div class="form-group  mb-3">
-            <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-            <hr class="my-4">
+        <div class="form-group  mb-4">
             <label for="user-input" class="sr-only">Add your own topic</label>
             <input type="text" class="form-control text-center" id="user-input" placeholder="Create your own topic here">
         </div>

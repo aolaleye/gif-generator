@@ -24,6 +24,7 @@ function displayGifs() {
 
         }
 
+        //on click, toggles data-state from still to animate and vice versa
         $(".gif").on("click", function() {
             var state = $(this).attr("data-state");
         
