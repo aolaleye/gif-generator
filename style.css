@@ -79,7 +79,8 @@ body {
     animation-duration: 1.5s;
 }
 
-.created-buttons .btn:hover {
+.created-buttons .btn:hover,
+.created-buttons .btn:focus {
     color: #495057;
     background-color: #fff;
     animation-duration: 0s;
