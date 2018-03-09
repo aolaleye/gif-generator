@@ -24,6 +24,7 @@ body {
     color: #fff;
     text-shadow: -1px 0px 20px #ababab;
     letter-spacing: 3px;
+    font-size: 4rem;
 }
 
 #add-button {
@@ -112,7 +113,7 @@ img {
 }
 
 .instructions p {
-    font-size: .9rem;
+    font-size: .8rem;
     display: inline;
     /* background: linear-gradient(3deg, #313131, #fff); */
     /* background-color: #989898; */
