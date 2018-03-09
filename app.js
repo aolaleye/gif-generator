@@ -1,5 +1,5 @@
 
-var topics = ["movies", "sports", "weather", "animals", "plants", "books", "music", "presidents", "holidays", "food", "planets", "clothing"];
+var topics = ["movies", "sports", "weather", "animals", "plants", "books", "music", "planets", "holidays", "food", "presidents", "clothing"];
 
 function displayGifs() {
     var topic = $(this).attr("data-name");
