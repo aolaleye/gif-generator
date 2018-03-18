@@ -22,6 +22,10 @@ function displayGifs() {
 
             $("#gifs-area").prepend(singleGif); //<--- prints gifs
 
+            $('html, body').animate({
+                scrollTop: $("#gifs-area").offset().top
+              }, 1000);
+
         }
 
         //on click, toggles data-state from still to animate and vice versa
