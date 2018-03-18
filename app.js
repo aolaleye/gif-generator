@@ -18,15 +18,15 @@ function displayGifs() {
 
         for (var i = 0; i < results.length; i++) {
 
-            var singleGif = $("<div class='col-3 mb-5'><img src='" + results[i].images.fixed_height_still.url + "' data-still='" + results[i].images.fixed_height_still.url + "' data-animate='" + results[i].images.fixed_height.url + "' data-state='still' class='gif'><h6>Rating: " + results[i].rating.toUpperCase() + "</h6></div>");
+            var singleGif = $("<div class='col-3 mb-5'><img src='" + results[i].images.fixed_height.url + "' data-still='" + results[i].images.fixed_height_still.url + "' data-animate='" + results[i].images.fixed_height.url + "' data-state='animate' class='gif'><h6>Rating: " + results[i].rating.toUpperCase() + "</h6></div>");
 
             $("#gifs-area").prepend(singleGif); //<--- prints gifs
-
         }
 
+        //page moves to the gifs-area when a topic is clicked
         $('html, body').animate({
             scrollTop: $("#gifs-area").offset().top
-          }, 1000);
+        }, 1000);
 
         //on click, toggles data-state from still to animate and vice versa
         $(".gif").on("click", function() {
@@ -42,7 +42,6 @@ function displayGifs() {
         }) 
     });
 }
-
 
 function createButtons() {
     $(".created-buttons").empty();
