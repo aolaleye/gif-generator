@@ -3,7 +3,7 @@ var topics = ["movies", "sports", "weather", "animals", "plants", "books", "musi
 
 function displayGifs() {
     var topic = $(this).attr("data-name");
-    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + topic + "&api_key=dc6zaTOxFJmzC&limit=20"; //<--- limits gifs to 10
+    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + topic + "&api_key=dc6zaTOxFJmzC&limit=10"; //<--- limits gifs to 10
 
     $.ajax({
       url: queryURL,
@@ -18,10 +18,89 @@ function displayGifs() {
 
         for (var i = 0; i < results.length; i++) {
 
-            var singleGif = $("<div class='col-3 mb-5'><img src='" + results[i].images.fixed_height.url + "' data-still='" + results[i].images.fixed_height_still.url + "' data-animate='" + results[i].images.fixed_height.url + "' data-state='animate' class='gif'><h6>Rating: " + results[i].rating.toUpperCase() + "</h6></div>");
+            var singleGif = $("<div class='col-3 mb-5'><img src='" + results[i].images.fixed_height.url + "' data-still='" + results[i].images.fixed_height_still.url + "' data-animate='" + results[i].images.fixed_height.url + "' data-state='animate' class='gif'></div>");
 
             $("#gifs-area").prepend(singleGif); //<--- prints gifs
         }
+
+        //page moves to the gifs-area when a topic is clicked
+        $('html, body').animate({
+            scrollTop: $("#gifs-area").offset().top
+        }, 1000);
+
+        //on click, toggles data-state from still to animate and vice versa
+        $(".gif").on("click", function() {
+            var state = $(this).attr("data-state");
+        
+            if (state === "still") {
+                $(this).attr("src", $(this).data("animate"));
+                $(this).attr("data-state", "animate");
+            } else {
+                $(this).attr("src", $(this).data("still"));
+                $(this).attr("data-state", "still");
+            }
+        }) 
+    });
+}
+
+function trending() {
+    var queryURL = "https://api.giphy.com/v1/gifs/trending?&api_key=dc6zaTOxFJmzC&limit=10"; //<--- limits gifs to 10
+
+    $.ajax({
+      url: queryURL,
+      method: "GET"
+    }).then(function(response) {
+
+        console.log(response);
+
+        var results = response.data;
+
+        $("#gifs-area").empty();
+
+        for (var i = 0; i < results.length; i++) {
+
+            var singleGif = $("<div class='col-3 mb-5'><img src='" + results[i].images.fixed_height.url + "' data-still='" + results[i].images.fixed_height_still.url + "' data-animate='" + results[i].images.fixed_height.url + "' data-state='animate' class='gif'></div>");
+
+            $("#gifs-area").prepend(singleGif); //<--- prints gifs
+        }
+
+        //page moves to the gifs-area when a topic is clicked
+        $('html, body').animate({
+            scrollTop: $("#gifs-area").offset().top
+        }, 1000);
+
+        //on click, toggles data-state from still to animate and vice versa
+        $(".gif").on("click", function() {
+            var state = $(this).attr("data-state");
+        
+            if (state === "still") {
+                $(this).attr("src", $(this).data("animate"));
+                $(this).attr("data-state", "animate");
+            } else {
+                $(this).attr("src", $(this).data("still"));
+                $(this).attr("data-state", "still");
+            }
+        }) 
+    });
+}
+
+function random() {
+    var queryURL = "https://api.giphy.com/v1/gifs/random?&api_key=dc6zaTOxFJmzC&limit=10"; //<--- limits gifs to 10
+
+    $("#gifs-area").empty();
+
+    $.ajax({
+      url: queryURL,
+      method: "GET"
+    }).then(function(response) {
+
+        console.log(response);
+
+        var results = response.data; 
+
+        var singleGif = $("<div class='col mb-5 text-center'><img src='" + results.images.fixed_height.url + "' data-still='" + results.images.fixed_height_still.url + "' data-animate='" + results.images.fixed_height.url + "' data-state='animate' class='gif'></div>");
+
+        $("#gifs-area").prepend(singleGif); //<--- prints gifs
 
         //page moves to the gifs-area when a topic is clicked
         $('html, body').animate({
@@ -66,6 +145,8 @@ $("#add-button").on("click", function(event) {
 });
 
 $(document).on("click", ".topic", displayGifs);
+$(document).on("click", ".trending", trending);
+$(document).on("click", ".random", random);
 
 createButtons();
 
