@@ -29,12 +29,13 @@ body {
 
 .trending,
 .random {
-    border: 1.5px dotted #fff;
+    font-family: 'Bungee Inline', cursive;
+    border: none;
     border-radius: 70px;
     margin-top: 10px;
     margin-bottom: 15px;
     padding: 15px 0;
-    box-shadow: 1px 0px 16px 0px #fff;
+    box-shadow: inset 0px 0px 20px 0px #fff;
 }
 
 .trending {
@@ -47,18 +48,8 @@ body {
     margin-right: 150px;
 }
 
-#add-button {
-    background-color: #565656;
-    padding: 5px 20px;
-    border: 4px double #fff;
-    color: #fff;
-}
-
-#add-button:hover {
-    background-color: #404040;
-}
-
 .created-buttons .btn {
+    font-family: 'Bungee Inline', cursive;
     background-color: #0894ca;
     border: 1px dotted #fff;
     border-radius: 0px;
@@ -119,12 +110,24 @@ img {
     max-width: 100%;
 }
 
-.form {
-    min-width: 100%;
+#user-form {
+    margin: 0 250px;
 }
 
-.form input {
-    border: 2px solid #565656;
+#user-input {
+    border-radius: 0;
+}
+
+#add-button {
+    font-family: 'Bungee Inline', cursive;
+    background-color: #565656;
+    border: none;
+    color: #fff;
+    border-radius: 0;
+}
+
+#add-button:hover {
+    background-color: #404040;
 }
 
 .form-control::placeholder {
@@ -142,6 +145,10 @@ img {
     box-shadow: 0px 1px 0px 0px #fff;
 }
 
+.load-more {
+    margin: 0 350px;
+}
+
 /* --- media queries --- */
 
 /* tablets (landscape) and bigger */
@@ -149,6 +156,14 @@ img {
 
     .instructions p {
         font-size: 1rem;
+    }
+
+    #user-form {
+        margin: 0 480px;
+    }
+
+    .load-more {
+        margin: 0 630px;
     }
 
 } /* <--- end media query */
