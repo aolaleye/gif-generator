@@ -2,8 +2,10 @@
 var topics = ["movies", "sports", "weather", "animals", "plants", "books", "music", "planets", "holidays", "food", "presidents", "clothing"];
 
 function displayGifs() {
+    $(".load-more").remove();
+
     var topic = $(this).attr("data-name");
-    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + topic + "&api_key=dc6zaTOxFJmzC&limit=10"; //<--- limits gifs to 10
+    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + topic + "&api_key=dc6zaTOxFJmzC&limit=100";
 
     $.ajax({
       url: queryURL,
@@ -16,12 +18,20 @@ function displayGifs() {
 
         $("#gifs-area").empty();
 
-        for (var i = 0; i < results.length; i++) {
+        var counter = 0;
 
-            var singleGif = $("<div class='col-3 mb-5'><img src='" + results[i].images.fixed_height.url + "' data-still='" + results[i].images.fixed_height_still.url + "' data-animate='" + results[i].images.fixed_height.url + "' data-state='animate' class='gif'></div>");
+        for (var i = 0; i < 12; i++) {
 
-            $("#gifs-area").prepend(singleGif); //<--- prints gifs
+            counter += 1;
+
+            var singleGif = $("<div class='col-3 mb-5'><img src='" + results[i].images.fixed_width_downsampled.url + "' data-still='" + results[i].images.fixed_width_still.url + "' data-animate='" + results[i].images.fixed_width_downsampled.url + "' data-state='animate' class='gif'></div>");
+
+            $("#gifs-area").append(singleGif); //<--- prints gifs
         }
+
+        
+
+        $("#gifs-area").after('<div class="row mb-5"><button type="submit" class="btn btn-primary load-more col">Load More...</button></div>');
 
         //page moves to the gifs-area when a topic is clicked
         $('html, body').animate({
@@ -39,12 +49,32 @@ function displayGifs() {
                 $(this).attr("src", $(this).data("still"));
                 $(this).attr("data-state", "still");
             }
-        }) 
+        }); 
+
+        $(".load-more").on("click", function() {
+            var length = counter + 10;
+
+            if (counter < results.length) {
+                for (var i = counter; i < length; i++) {
+
+                    counter += 1;
+
+                    var singleGif = $("<div class='col-3 mb-5'><img src='" + results[i].images.fixed_width_downsampled.url + "' data-still='" + results[i].images.fixed_width_still.url + "' data-animate='" + results[i].images.fixed_width_downsampled.url + "' data-state='animate' class='gif'></div>");
+        
+                    $("#gifs-area").append(singleGif); //<--- prints gifs
+                }
+            } else {
+                $(".load-more").text("No More Gifs");
+            }
+        }); 
+
     });
 }
 
 function trending() {
-    var queryURL = "https://api.giphy.com/v1/gifs/trending?&api_key=dc6zaTOxFJmzC&limit=10"; //<--- limits gifs to 10
+    $(".load-more").remove();
+
+    var queryURL = "https://api.giphy.com/v1/gifs/trending?&api_key=dc6zaTOxFJmzC&limit=12"; //<--- limits gifs to 12
 
     $.ajax({
       url: queryURL,
@@ -59,9 +89,9 @@ function trending() {
 
         for (var i = 0; i < results.length; i++) {
 
-            var singleGif = $("<div class='col-3 mb-5'><img src='" + results[i].images.fixed_height.url + "' data-still='" + results[i].images.fixed_height_still.url + "' data-animate='" + results[i].images.fixed_height.url + "' data-state='animate' class='gif'></div>");
+            var singleGif = $("<div class='col-3 mb-5'><img src='" + results[i].images.fixed_width_downsampled.url + "' data-still='" + results[i].images.fixed_width_still.url + "' data-animate='" + results[i].images.fixed_width_downsampled.url + "' data-state='animate' class='gif'></div>");
 
-            $("#gifs-area").prepend(singleGif); //<--- prints gifs
+            $("#gifs-area").append(singleGif); //<--- prints gifs
         }
 
         //page moves to the gifs-area when a topic is clicked
@@ -80,11 +110,13 @@ function trending() {
                 $(this).attr("src", $(this).data("still"));
                 $(this).attr("data-state", "still");
             }
-        }) 
+        }); 
     });
 }
 
 function random() {
+    $(".load-more").remove();
+
     var queryURL = "https://api.giphy.com/v1/gifs/random?&api_key=dc6zaTOxFJmzC&limit=10"; //<--- limits gifs to 10
 
     $("#gifs-area").empty();
@@ -98,9 +130,9 @@ function random() {
 
         var results = response.data; 
 
-        var singleGif = $("<div class='col mb-5 text-center'><img src='" + results.images.fixed_height.url + "' data-still='" + results.images.fixed_height_still.url + "' data-animate='" + results.images.fixed_height.url + "' data-state='animate' class='gif'></div>");
+        var singleGif = $("<div class='col mb-5 text-center'><img src='" + results.images.fixed_width_downsampled.url + "' data-still='" + results.images.fixed_width_still.url + "' data-animate='" + results.images.fixed_width_downsampled.url + "' data-state='animate' class='gif'></div>");
 
-        $("#gifs-area").prepend(singleGif); //<--- prints gifs
+        $("#gifs-area").append(singleGif); //<--- prints gifs
 
         //page moves to the gifs-area when a topic is clicked
         $('html, body').animate({
@@ -118,7 +150,7 @@ function random() {
                 $(this).attr("src", $(this).data("still"));
                 $(this).attr("data-state", "still");
             }
-        }) 
+        }); 
     });
 }
 
