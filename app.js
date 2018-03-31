@@ -3,7 +3,7 @@ var topics = ["movies", "sports", "weather", "animals", "plants", "books", "musi
 
 function displayGifs() {
     var topic = $(this).attr("data-name");
-    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + topic + "&api_key=dc6zaTOxFJmzC&limit=10"; //<--- limits gifs to 10
+    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + topic + "&api_key=dc6zaTOxFJmzC&limit=20"; //<--- limits gifs to 10
 
     $.ajax({
       url: queryURL,
