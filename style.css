@@ -27,6 +27,25 @@ body {
     font-size: 4rem;
 }
 
+.trending,
+.random {
+    border: 1.5px dotted #fff;
+    border-radius: 70px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 15px 0;
+}
+
+.trending {
+    margin-left: 150px;
+    margin-right: 25px;
+}
+
+.random {
+    margin-left: 25px;
+    margin-right: 150px;
+}
+
 #add-button {
     background-color: #565656;
     padding: 10px 25px;

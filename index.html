@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <div class="jumbotron mb-4 text-center mt-5">
+    <div class="jumbotron text-center mt-5">
         <h1 class="display-4 mb-4">Gif Generator</h1>
         <div class="instructions row mt-5 mb-4 mx-5 text-center ">
             <p class="col mx-3">Click a topic to generate gifs</p>
@@ -20,6 +20,15 @@
     </div>
 
     <div class="container">
+
+    <div class="text-center my-5 mx-5 row">
+        <button class="trending btn btn-secondary col ">** Trending Gifs **</button>
+        <button class="random btn btn-secondary col ">** Random Gif **</button>
+    </div>
+       
+    <div class="created-buttons mb-3 mx-5 mt-5">
+        <!-- buttons will appear here -->
+    </div>
 
     <!-- this form allows user to input a new topic -->
     <div class="row pt-4 pb-3 mb-5 text-center form">
@@ -31,12 +40,7 @@
         <!-- upon click a new button is created from user input -->
         <button id="add-button" type="submit" class=" btn btn-primary mb-2">Create New Topic</button>
     </form>
-    </div>    
-
-    
-    <div class="created-buttons text-center row mb-5 mx-5">
-        <!-- buttons will appear here -->
-    </div>
+    </div> 
 
     <div id="gifs-area" class="row text-center mx-5">
         <!-- gifs will appear here -->
