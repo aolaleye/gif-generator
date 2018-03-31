@@ -31,9 +31,10 @@ body {
 .random {
     border: 1.5px dotted #fff;
     border-radius: 70px;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-top: 10px;
+    margin-bottom: 15px;
     padding: 15px 0;
+    box-shadow: 1px 0px 16px 0px #fff;
 }
 
 .trending {
@@ -48,7 +49,7 @@ body {
 
 #add-button {
     background-color: #565656;
-    padding: 10px 25px;
+    padding: 5px 20px;
     border: 4px double #fff;
     color: #fff;
 }
