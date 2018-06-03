@@ -1,6 +1,6 @@
 # Gif Generator
 
-__This application utilizes the GIPHY API to allow users to generate gifs based on a specified topic.__ 
+This application utilizes the GIPHY API to allow users to generate gifs based on a specified topic.
 
 #### Overview:
 * The application initially provides pre-built buttons with topics for the user to use.
@@ -9,6 +9,8 @@ __This application utilizes the GIPHY API to allow users to generate gifs based 
   * Users can enter their topic into the field input and upon clicking submit, the application will add the user-created topic to the existing group of topics.
 * If the user clicks the _"Top 10 Trending Gifs"_ button, the app will return the top 10 trending gifs from the Giphy API.
 * Every time the user clicks the _"Random Gif"_ button, the app will return a single random gif.
+
+#
 
 #### > __Click Below to Try it Out:__
 [![Gif Generator](gifgenerator1.png)](https://aolaleye.github.io/gif-generator/)
